@@ -7,7 +7,7 @@ void main() async {
   print(cyan("BTRFS Automatic Defragmentation and Compressor"));
 
   //Ask for compression method & create a variable for it
-  var targetcompmethod;
+  var targetcompMethod;
   print(
       "Which compression method do you want to use for the whole root partition (/)?");
   print("1. zlib");
@@ -15,29 +15,25 @@ void main() async {
   print("3. zstd");
   print("4. No compression");
   stdout.write("Select: ");
-  String? compmethod = stdin.readLineSync()!;
-  int? compmethodInt = int.tryParse(compmethod); //try parsing to int the input
-  if (compmethodInt == 1) {
-    print("zlib selected");
-    targetcompmethod = "-czlib";
-  } else if (compmethodInt == 2) {
-    print("lzo selected");
-    targetcompmethod = "-clzo";
-  } else if (compmethodInt == 3) {
-    print("zstd selected");
-    targetcompmethod = "-czstd";
-  } else if (compmethodInt == 4) {
-    print("No compression selected");
-    targetcompmethod = "";
+
+  Map<int, String> compMethods = {1: "-czlib", 2: "-clzo", 3: "-czstd", 4: ""};
+  String? compMethod = stdin.readLineSync()!;
+  int? compMethodInt = int.tryParse(compMethod); //try parsing to int the input
+
+  if (compMethods.containsKey(compMethodInt)) {
+    targetcompMethod = compMethods[compMethodInt]!;
+    print(compMethodInt == 4
+        ? "No compression selected"
+        : "${targetcompMethod.substring(2)} compression selected");
   } else {
-    print(red("Invalid input"));
+    print(red("Invalid input. Going to Home Screen..."));
     homePage.homePage();
   }
 
   //Assign btrfs process command line inside 'defragprocess' variable
   final defragprocess = await Process.run('sh', [
     '-c',
-    'sudo btrfs fi defrag -r $targetcompmethod /home/hashem/Pictures'
+    'sudo btrfs fi defrag -r $targetcompMethod /home/hashem/Pictures'
   ]);
 
   //Execute and check the defragprocess
