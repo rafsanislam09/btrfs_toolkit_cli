@@ -24,7 +24,7 @@ void whenInputIsInvalid() {
   print("Invalid input. Want to restart application?");
   stdout.write("y/N:");
   String? restart = stdin.readLineSync();
-  if (restart == "y") {
+  if (restart == "y" || restart == "Y") {
     homePage();
   } else if (restart == "n" || restart == "N") {
     print("Bye!");

@@ -3,13 +3,13 @@ import 'package:btrfs_toolkit/universalconsts.dart';
 import 'package:btrfs_toolkit/pages/homepage.dart' as homePage;
 
 void main() async {
-
   //Introduce the script
   print(cyan("BTRFS Automatic Defragmentation and Compressor"));
 
   //Ask for compression method & create a variable for it
   var targetcompmethod;
-  print("Which compression method do you want to use for the whole root partition (/)?");
+  print(
+      "Which compression method do you want to use for the whole root partition (/)?");
   print("1. zlib");
   print("2. lzo");
   print("3. zstd");
@@ -26,7 +26,7 @@ void main() async {
   } else if (compmethodInt == 3) {
     print("zstd selected");
     targetcompmethod = "-czstd";
-  }else if (compmethodInt == 4) {
+  } else if (compmethodInt == 4) {
     print("No compression selected");
     targetcompmethod = "";
   } else {
