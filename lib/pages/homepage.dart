@@ -1,16 +1,18 @@
 import 'dart:io';
 import 'package:btrfs_toolkit/universalconsts.dart';
-import 'package:btrfs_toolkit/pages/defragmenter_and_compresser.dart' as DefragmenterCompresser;
+import 'package:btrfs_toolkit/pages/defragmenter_and_compresser.dart'
+    as DefragmenterCompresser;
 
 void homePage() {
   print(blue("BTRFS ToolKit"));
   print("What do you want to do?");
   print("1.BTRFS Defragmentation");
-  print("2.BTRFS Check Filesystem")
+  print("2.BTRFS Check Filesystem");
   stdout.write("Select:");
 
   String? selectedTool = stdin.readLineSync()!;
-  int? selectedToolInt = int.tryParse(selectedTool); //try parsing to int the input
+  int? selectedToolInt =
+      int.tryParse(selectedTool); //try parsing to int the input
   if (selectedToolInt == 1) {
     DefragmenterCompresser.main();
   } else {

@@ -17,16 +17,16 @@ void main() async {
   stdout.write("Select: ");
   String? compmethod = stdin.readLineSync()!;
   int? compmethodInt = int.tryParse(compmethod); //try parsing to int the input
-  if (compmethod == 1) {
+  if (compmethodInt == 1) {
     print("zlib selected");
     targetcompmethod = "-czlib";
-  } else if (compmethod == 2) {
+  } else if (compmethodInt == 2) {
     print("lzo selected");
     targetcompmethod = "-clzo";
-  } else if (compmethod == 3) {
+  } else if (compmethodInt == 3) {
     print("zstd selected");
     targetcompmethod = "-czstd";
-  }else if (compmethod == 4) {
+  }else if (compmethodInt == 4) {
     print("No compression selected");
     targetcompmethod = "";
   } else {
