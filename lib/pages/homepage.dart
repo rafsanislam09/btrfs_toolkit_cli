@@ -1,12 +1,12 @@
 import 'dart:io';
 //Current Project Files
-import 'package:btrfs_toolkit/universalconsts.dart';
+import 'package:btrfs_toolkit/universalconsts.dart' as commonCode;
 import 'package:btrfs_toolkit/pages/defragmenter_and_compresser.dart'
     as DefragmenterCompresser;
 import 'package:btrfs_toolkit/pages/summary.dart' as FilesystemSummary;
 
 void homePage() {
-  print(blue("BTRFS ToolKit"));
+  print(commonCode.blue("BTRFS ToolKit"));
   print("What do you want to do?");
   print("1.BTRFS Defragmentation");
   print("2.BTRFS Show summary of root filesystem");

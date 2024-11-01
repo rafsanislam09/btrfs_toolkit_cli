@@ -1,11 +1,11 @@
 import 'dart:io';
 //Current Project Files
-import 'package:btrfs_toolkit/universalconsts.dart';
+import 'package:btrfs_toolkit/universalconsts.dart' as commonCode;
 import 'package:btrfs_toolkit/pages/homepage.dart' as homePage;
 
 void main() async {
   //Introduce the script
-  print(cyan("BTRFS Automatic Defragmentation and Compressor"));
+  print(commonCode.blue("BTRFS Automatic Defragmentation and Compressor"));
 
   //Ask for compression method & create a variable for it
   var targetcompMethod;
@@ -27,7 +27,7 @@ void main() async {
         ? "No compression selected"
         : "${targetcompMethod.substring(2)} compression selected");
   } else {
-    print(red("Invalid input. Going to Home Screen..."));
+    print(commonCode.red("Invalid input. Going to Home Screen..."));
     homePage.homePage();
   }
 
@@ -40,9 +40,9 @@ void main() async {
   //Execute and check the defragprocess
   if (defragprocess.exitCode == 0) {
     print(defragprocess.stdout);
-    print(green("Successfully defragged whole filesystem"));
+    print(commonCode.green("Successfully defragged whole filesystem"));
   } else {
     print(defragprocess.stderr);
-    print(red("Could not defrag filesystem"));
+    print(commonCode.red("Could not defrag filesystem"));
   }
 }
