@@ -2,3 +2,5 @@ An command-line application written with Dart to manage some Btrfs tasks. Using 
 
 By the way, if you want to run this project:
 in command line type: `./run` (it support any shell, including windows powershell. To run this script on Windows Command Prompt, type `run`)
+To build, run `./build` in the same way. 
+Thank you for reading this nonsense.
