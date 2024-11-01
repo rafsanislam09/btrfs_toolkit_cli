@@ -1,0 +1,2 @@
+dart compile exe bin/btrfs_toolkit.dart -o bin/out/btrfs-toolkit
+./bin/out/btrfs-toolkit
