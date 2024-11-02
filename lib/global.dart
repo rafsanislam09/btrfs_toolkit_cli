@@ -12,13 +12,13 @@ final AnsiPen green = AnsiPen()..green();
 final AnsiPen cyan = AnsiPen()..cyan();
 final AnsiPen blue = AnsiPen()..blue();
 
-//Warning for restarting or closing application
-final String restartWarning = "Selecting N (No) will exit the program.";
-//Function to restart application
-void restartApplication(restartPrompt) {
-  if (restartPrompt == "y" || restartPrompt == "Y") {
+void whenInputIsInvalid() {
+  print("Invalid input. Want to restart application?");
+  stdout.write("y/N:");
+  String? restart = stdin.readLineSync();
+  if (restart == "y" || restart == "Y") {
     homePage.homePage();
-  } else if (restartPrompt == "n" || restartPrompt == "N") {
+  } else if (restart == "n" || restart == "N") {
     print("Bye!");
     exit(0);
   } else {
