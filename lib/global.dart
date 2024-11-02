@@ -12,8 +12,10 @@ final AnsiPen green = AnsiPen()..green();
 final AnsiPen cyan = AnsiPen()..cyan();
 final AnsiPen blue = AnsiPen()..blue();
 
-void whenInputIsInvalid() {
-  print("Invalid input. Want to restart application?");
+//When input is invalid
+final inputIsInvaildPrint =
+    print("Invalid input. Want to restart application?");
+void restartApp() {
   stdout.write("y/N:");
   String? restart = stdin.readLineSync();
   if (restart == "y" || restart == "Y") {

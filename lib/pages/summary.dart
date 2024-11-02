@@ -5,7 +5,9 @@ import 'package:btrfs_toolkit/global.dart' as globals;
 void main() async {
   //Introduce the script
   print("This program shows a summary of the root filesystem");
-  await Process.run('sh', ['-c', 'btrfs fi df -H -h /']);
+  final summary = await Process.run('sh', ['-c', 'btrfs fi usage /']);
 
-  globals.whenInputIsInvalid();
+  print(summary.stdout);
+
+  globals.restartApp();
 }

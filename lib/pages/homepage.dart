@@ -20,6 +20,6 @@ void homePage() {
   } else if (selectedToolInt == 2) {
     FilesystemSummary.main();
   } else {
-    globals.whenInputIsInvalid();
+    globals.restartApp();
   }
 }
