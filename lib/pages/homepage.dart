@@ -10,6 +10,7 @@ void homePage() {
   print("What do you want to do?");
   print("1.BTRFS Defragmentation");
   print("2.BTRFS Show summary of root filesystem");
+  print("3. Quit");
   stdout.write("Select:");
 
   String? selectedTool = stdin.readLineSync()!;
@@ -19,6 +20,9 @@ void homePage() {
     DefragmenterCompresser.main();
   } else if (selectedToolInt == 2) {
     FilesystemSummary.main();
+  } else if (selectedToolInt == 3) {
+    print("Bye!");
+    exit(0);
   } else {
     globals.restartApp();
   }

@@ -6,7 +6,6 @@ void main() async {
   //Introduce the script
   print("This program shows a summary of the root filesystem");
   final summary = await Process.run('sh', ['-c', 'btrfs fi usage /']);
-
   print(summary.stdout);
 
   globals.restartApp();
